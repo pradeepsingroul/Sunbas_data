@@ -18,15 +18,22 @@ public class CustomerServiceImpl implements CustomerServices{
 	
 	@Override
 	public Customer createCustomer(Customer c) throws CustomerException {
+		System.out.println(c);
 		// TODO Auto-generated method stub
 		try {
+			System.out.println("I am 1");
 			Optional<Customer> optional = cRepo.findById(c.getCustomerId());
-			if(optional.isPresent()) {
-				 return cRepo.save(c);
-			}else {
+			System.out.println("kkkkkkkk");
+			if(!optional.isEmpty()) {
+				System.out.println("I am 3");
 				throw new CustomerException("Customer already exist with the id: "+c.getCustomerId());
+			}else {
+				System.out.println("I am 2");
+				cRepo.save(c);
+				return c;
 			}
 		} catch (Exception e) {
+			System.out.println("I am 4");
 			throw new CustomerException(e.getMessage());
 
 		}
@@ -43,6 +50,7 @@ public class CustomerServiceImpl implements CustomerServices{
 				throw new CustomerException("Customer does not exist with the id: "+id);
 			}
 		} catch (Exception e) {
+			
 			throw new CustomerException(e.getMessage());
 
 		}
