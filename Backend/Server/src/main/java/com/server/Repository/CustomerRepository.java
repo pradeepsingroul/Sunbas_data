@@ -15,7 +15,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 
 	public Customer findByEmail(String email)throws CustomerException;
 	
-	@Query(value = "SELECT * FROM customers WHERE ?1 LIKE %?2% ORDER BY ?3", nativeQuery = true)
+	@Query(value = "SELECT * FROM customer WHERE ?1 LIKE '% ?2 %' ORDER BY ?3", nativeQuery = true)
     public List<Customer> findAllCustomers(String searchBy, String searchByVal,String sortBy) throws CustomerException;
 	
 
