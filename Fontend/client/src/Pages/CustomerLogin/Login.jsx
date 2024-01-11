@@ -25,9 +25,9 @@ export default function Login() {
 
     return <div>
         <form action="" onSubmit={handleSubmit}>
-            <input onChange={HandleInput} value={user.email} name="email"  type="text" placeholder="enter your email" />
-            <input onChange={HandleInput} value={user.password} name="password" type="text" placeholder="enter your password" />
-            <input type="submit" />
+            <label htmlFor="">Email: <input onChange={HandleInput} value={user.email} name="email"  type="text" placeholder="enter your email" /> </label>
+            <label htmlFor="">Password: <input onChange={HandleInput} value={user.password} name="password" type="text" placeholder="enter your password" /></label>
+            <label htmlFor="">Button: <input type="submit" /></label>
         </form>
     </div>
 }

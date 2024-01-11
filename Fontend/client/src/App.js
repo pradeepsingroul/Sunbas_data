@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import Login from './Pages/CustomerLogin/Login';
 import List from './Pages/CustomerList/List';
@@ -9,6 +9,11 @@ function App() {
     <div className="App">
       {/* <Login/> */}
       <Signup/>
+
+      <Login/>
+
+
+      <List/>
     </div>
   );
 }
