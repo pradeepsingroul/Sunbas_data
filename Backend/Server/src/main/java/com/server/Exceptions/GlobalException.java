@@ -20,7 +20,7 @@ public class GlobalException {
 		error.setDescription(w.getDescription(false));
 		error.setTimeStamp(LocalDateTime.now());
 		
-		return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
+		return new ResponseEntity<ExceptionDetails>(error,HttpStatus.BAD_GATEWAY);
 	}
 	
 	@ExceptionHandler(CustomerException.class)
@@ -30,7 +30,7 @@ public class GlobalException {
 		error.setDescription(w.getDescription(false));
 		error.setTimeStamp(LocalDateTime.now());
 		
-		return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
+		return new ResponseEntity<ExceptionDetails>(error,HttpStatus.BAD_GATEWAY);
 	}
 	
 	@ExceptionHandler(MethodArgumentNotValidException.class)
@@ -40,7 +40,7 @@ public class GlobalException {
 		error.setDescription(w.getDescription(false));
 		error.setTimeStamp(LocalDateTime.now());
 		
-		return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
+		return new ResponseEntity<ExceptionDetails>(error,HttpStatus.BAD_GATEWAY);
 	}
 	
 	@ExceptionHandler(NoHandlerFoundException.class)
@@ -50,7 +50,7 @@ public class GlobalException {
 		error.setDescription(w.getDescription(false));
 		error.setTimeStamp(LocalDateTime.now());
 		
-		return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
+		return new ResponseEntity<ExceptionDetails>(error,HttpStatus.BAD_GATEWAY);
 	}
 	
 //	@ExceptionHandler(e.clas)
