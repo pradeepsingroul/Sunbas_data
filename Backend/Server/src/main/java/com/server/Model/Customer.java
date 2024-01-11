@@ -19,6 +19,8 @@ import lombok.Setter;
 public class Customer {
 	
 	@Id
+	private Integer customerId;
+	
 	private String first_name;
 	
 	private String last_name;
