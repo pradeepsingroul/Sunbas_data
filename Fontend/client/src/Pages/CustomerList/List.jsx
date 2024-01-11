@@ -45,19 +45,7 @@ export default function List() {
     }
 
 
-    const handleSort = (event)=>{
-
-            const val = event.target.value
-            console.log('val', val);
-            if(!isNaN(val)){
-                const sortedData = [...customers].sort((a, b) => a.val.localeCompare(b.val));
-                setCustomers(sortedData);
-            }else{
-                const sortedData = [...customers].sort((a, b) => a-b);
-                setCustomers(sortedData);
-
-            }
-    }
+   
 
 
 
@@ -68,7 +56,7 @@ export default function List() {
         <div>
             <button><Link to={"/signup"}>Add Customer</Link></button>
         </div>
-        <select  onChange={handleSort}>
+        <select  >
             <option value="city">city</option>
             <option value="first_name">firstName</option>
             <option value="last_name">lastName</option>
