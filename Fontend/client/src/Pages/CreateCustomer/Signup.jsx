@@ -5,7 +5,6 @@ import './Signup.css'
 
 export default function Signup() {
     const schema = {
-        customerId: 0,
         first_name: "",
         last_name: "",
         street: "",
@@ -22,8 +21,23 @@ export default function Signup() {
     const hanldeformData = (event) => {
         setCustomer({ ...customer, [event.target.name]: event.target.value })
     }
-    const HandleSubmit = (event) => {
+    const HandleSubmit = async (event) => {
+        console.log(customer)
         event.preventDefault()
+        const data = await fetch("http://localhost:8888/api/v1/customers",{
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(customer),
+            
+        })
+        console.log('data',await data.json());
+        if(data.ok){
+
+            console.log('data');
+        }
+
         console.log(customer)
     }
 

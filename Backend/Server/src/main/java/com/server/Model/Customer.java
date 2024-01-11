@@ -1,6 +1,8 @@
 package com.server.Model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;
@@ -19,6 +21,7 @@ import lombok.Setter;
 public class Customer {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer customerId;
 	
 	private String first_name;
@@ -38,7 +41,8 @@ public class Customer {
 	
 	@Size(max = 10, min = 10)
 	private String phone;
-	 
+	
+	private String password;
 	 
 	
 	

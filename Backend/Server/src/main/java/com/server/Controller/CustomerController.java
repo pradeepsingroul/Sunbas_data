@@ -3,8 +3,10 @@ package com.server.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +21,7 @@ import com.server.Model.Customer;
 import com.server.Services.CustomerServices;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/v1")
 public class CustomerController {
 	
@@ -59,12 +62,23 @@ public class CustomerController {
 		
 	}
 	
-	@GetMapping("/customers")
-	public ResponseEntity<List<Customer>> getCustomersPagi(@RequestParam("searchBy") String searchBy,@RequestParam("searchByVal") String searchByVal,@RequestParam("sortBy") String sortBy) throws CustomerException {
+	@GetMapping("/customers/list")
+	public ResponseEntity<Page<Customer>> getCustomersPagi(@RequestParam("_page") Integer page,@RequestParam("_limit") Integer limit) throws CustomerException {
 		
-		List<Customer> c1 = cService.getAllCustomers(searchBy,searchByVal,sortBy);
+		Page<Customer> c1 = cService.getAllCustomers(page,limit);
+
+		return new ResponseEntity<Page<Customer>>(c1, HttpStatus.CREATED);
+		
+		
+	}
+	
+	@GetMapping("/customers/listAll")
+	public ResponseEntity<List<Customer>> getAllc() throws CustomerException {
+		
+		List<Customer> c1 = cService.getAll();
 
 		return new ResponseEntity<List<Customer>>(c1, HttpStatus.CREATED);
+		
 		
 		
 	}
