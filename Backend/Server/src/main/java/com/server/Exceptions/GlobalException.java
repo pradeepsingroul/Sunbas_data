@@ -19,7 +19,7 @@ public class GlobalException {
 		error.setMessage(e.getMessage());
 		error.setDescription(w.getDescription(false));
 		error.setTimeStamp(LocalDateTime.now());
-		
+		error.setStatus(true);
 		return new ResponseEntity<ExceptionDetails>(error,HttpStatus.BAD_GATEWAY);
 	}
 	
@@ -29,7 +29,7 @@ public class GlobalException {
 		error.setMessage(e.getMessage());
 		error.setDescription(w.getDescription(false));
 		error.setTimeStamp(LocalDateTime.now());
-		
+		error.setStatus(true);
 		return new ResponseEntity<ExceptionDetails>(error,HttpStatus.BAD_GATEWAY);
 	}
 	
@@ -39,7 +39,7 @@ public class GlobalException {
 		error.setMessage(e.getMessage());
 		error.setDescription(w.getDescription(false));
 		error.setTimeStamp(LocalDateTime.now());
-		
+		error.setStatus(true);
 		return new ResponseEntity<ExceptionDetails>(error,HttpStatus.BAD_GATEWAY);
 	}
 	
@@ -49,7 +49,7 @@ public class GlobalException {
 		error.setMessage(e.getMessage());
 		error.setDescription(w.getDescription(false));
 		error.setTimeStamp(LocalDateTime.now());
-		
+		error.setStatus(true);
 		return new ResponseEntity<ExceptionDetails>(error,HttpStatus.BAD_GATEWAY);
 	}
 	

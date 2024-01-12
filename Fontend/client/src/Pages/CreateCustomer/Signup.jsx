@@ -1,5 +1,6 @@
 import { useState } from "react"
 import './Signup.css'
+import { useNavigate } from "react-router-dom"
 
 
 
@@ -15,6 +16,8 @@ export default function Signup() {
         phone: "",
         password: ""
     }
+    const navigate = useNavigate()
+
 
     const [customer, setCustomer] = useState(schema)
 
@@ -34,7 +37,8 @@ export default function Signup() {
         })
         console.log('data',await data.json());
         if(data.ok){
-
+            alert("customer register successfull.....")
+            navigate("/")
             console.log('data');
         }
 

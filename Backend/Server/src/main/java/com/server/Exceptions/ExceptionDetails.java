@@ -17,5 +17,6 @@ public class ExceptionDetails {
 	private String message;
 	private String description;
 	private LocalDateTime timeStamp;
+	private Boolean status;
 
 }

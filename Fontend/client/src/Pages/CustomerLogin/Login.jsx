@@ -21,7 +21,8 @@ export default function Login() {
             const custo = await fetch(`http://localhost:8888/api/v1/customers/login?_email=${user.email}&_password=${user.password}`)
             const data = await custo.json();
             console.log(data);
-            if (data != null) {
+            if (!data.status) {
+                console.log('data', data);
                 alert("customer login successfull.....")
                 navigate('/');
             }else{
@@ -40,7 +41,7 @@ export default function Login() {
         <form action="" onSubmit={handleSubmit}>
             <label htmlFor="">Email: <input onChange={HandleInput} value={user.email} name="email" type="text" placeholder="enter your email" /> </label>
             <label htmlFor="">Password: <input onChange={HandleInput} value={user.password} name="password" type="text" placeholder="enter your password" /></label>
-            <label htmlFor="">Button: <input type="submit" value={Login}/></label>
+            <label htmlFor="">Button: <input type="submit" value={"Login"}/></label>
         </form>
     </div>
 }

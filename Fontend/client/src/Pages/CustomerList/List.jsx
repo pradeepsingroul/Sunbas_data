@@ -22,6 +22,7 @@ export default function List() {
         };
 
         fetchCustomers();
+        console.log("sdfdff")
     }, [count, limit])
 
 
@@ -35,7 +36,7 @@ export default function List() {
         });
         if (response.ok) {
             const filterdata = customers.filter((cust) => {
-                return cust.customerId != id;
+                return cust.customerId !== id;
             })
             setCustomers(filterdata)
             // console.log(customers)
@@ -50,7 +51,14 @@ export default function List() {
         setLimit(event.target.value)
 
     }
+    const handleSort = (event) => {
+        const valu = event.target.value
+        const sort = [...customers].sort((a, b) => {
+            return a[valu].localeCompare(b[valu]);
+        })
 
+        setCustomers(sort)
+    }
 
 
 
@@ -65,18 +73,17 @@ export default function List() {
             </div>
             <div> <button><Link to={"/login"}>Login</Link></button></div>
 
-            <select  >
+            <select onChange={handleSort} >
                 <option value="city">city</option>
                 <option value="first_name">firstName</option>
                 <option value="last_name">lastName</option>
                 <option value="state">state</option>
                 <option value="street">Street</option>
                 <option value="address">address</option>
-                <option value="customerId">customerId</option>
+               
             </select>
             <label htmlFor="">Specify the limit
                 <select name="" id="" onChange={handleLimit}>
-                    <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
