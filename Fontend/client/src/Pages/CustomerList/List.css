@@ -1,4 +1,11 @@
-/* CustomerTable.css */
+.nav{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 2rem;
+  height: 50px;
+  background-color: gold;
+}
 
 table {
     width: 100%;
