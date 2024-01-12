@@ -62,7 +62,7 @@ public class CustomerController {
 		
 	}
 	
-	@PutMapping("/customers/login")
+	@GetMapping("/customers/login")
 	public ResponseEntity<Customer> updateCustomer(@RequestParam("_email") String email, @RequestParam("_password") String password) throws CustomerException {
 		
 		Customer c1 = cService.loginCustomer(email, password);
