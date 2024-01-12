@@ -62,6 +62,14 @@ public class CustomerController {
 		
 	}
 	
+	@PutMapping("/customers/login")
+	public ResponseEntity<Customer> updateCustomer(@RequestParam("_email") String email, @RequestParam("_password") String password) throws CustomerException {
+		
+		Customer c1 = cService.loginCustomer(email, password);
+		return new ResponseEntity<Customer>(c1, HttpStatus.CREATED);
+		
+	}
+	
 	@GetMapping("/customers/list")
 	public ResponseEntity<Page<Customer>> getCustomersPagi(@RequestParam("_page") Integer page,@RequestParam("_limit") Integer limit) throws CustomerException {
 		

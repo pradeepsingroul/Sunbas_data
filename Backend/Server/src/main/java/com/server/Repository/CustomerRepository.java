@@ -16,6 +16,8 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 
 	public Optional<Customer> findByEmail(String email)throws CustomerException;
 	
+	public Customer findByEmailAndPassword(String email, String password) throws CustomerException;
+	
 //	@Query(value = "SELECT * FROM customer WHERE ?1 LIKE %?2%", nativeQuery = true)
 //    public List<Customer> findAllCustomers(String searchBy,String searchByVal) throws CustomerException;
 	

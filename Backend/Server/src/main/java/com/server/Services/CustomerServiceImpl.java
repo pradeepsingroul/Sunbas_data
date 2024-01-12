@@ -126,4 +126,20 @@ public class CustomerServiceImpl implements CustomerServices{
 		return cRepo.findAll();
 	}
 
+	@Override
+	public Customer loginCustomer(String email, String password) throws CustomerException {
+		try {
+			Customer logedinC = cRepo.findByEmailAndPassword(email, password);
+			if(logedinC!=null) {
+				return logedinC;
+			}else {
+				throw new CustomerException("You have entered something wronog creadentiakl......");
+			}
+		} catch (Exception e) {
+			throw new CustomerException(e.getMessage());
+			// TODO: handle exception
+		}
+		
+	}
+
 }

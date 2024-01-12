@@ -15,12 +15,16 @@ public interface CustomerServices {
 	
 	public List<Customer> getAll() throws CustomerException;
 
-	
 	public Customer deleteCustomerById(Integer id) throws CustomerException;
 	
 	public Page<Customer> getAllCustomers(Integer offSet, Integer pageSize) throws CustomerException;
 	
 	public Customer updateCustomerById(Customer c) throws CustomerException;
 	
+	
 	public Customer getCustomerByEmail(String email) throws CustomerException;
+
+	public Customer loginCustomer(String email, String password) throws CustomerException;
+
+	
 }
