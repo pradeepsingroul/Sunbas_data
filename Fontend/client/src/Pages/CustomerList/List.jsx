@@ -8,12 +8,13 @@ import ListItem from "./ListItem";
 export default function List() {
 
     const [customers, setCustomers] = useState([])
+    const [limit, setLimit] = useState(2)
     console.log('customers', customers);
     const [count, setCount] = useState(0);
 
     useEffect(() => {
         const fetchCustomers = async () => {
-            const data = await fetch(`http://localhost:8888/api/v1/customers/list?_page=${count}&_limit=2`)
+            const data = await fetch(`http://localhost:8888/api/v1/customers/list?_page=${count}&_limit=${limit}`)
             const dt = await data.json()
             console.log('dt', dt.content);
             setCustomers(dt.content)
@@ -21,7 +22,7 @@ export default function List() {
         };
 
         fetchCustomers();
-    }, [count])
+    }, [count, limit])
 
 
     const handleDelete = async (id) => {
@@ -45,6 +46,11 @@ export default function List() {
     }
 
 
+    const handleLimit = (event) => {
+        setLimit(event.target.value)
+
+    }
+
 
 
 
@@ -53,6 +59,7 @@ export default function List() {
 
     return (<>
         <div className="nav">
+
             <div>
                 <button><Link to={"/signup"}>Add Customer</Link></button>
             </div>
@@ -67,6 +74,16 @@ export default function List() {
                 <option value="address">address</option>
                 <option value="customerId">customerId</option>
             </select>
+            <label htmlFor="">Specify the limit
+                <select name="" id="" onChange={handleLimit}>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
+            </label>
 
         </div>
 
@@ -95,7 +112,7 @@ export default function List() {
         <div style={{ display: "flex", marginTop: "20px", height: "30px", alignItems: "center", justifyContent: "center" }}>
             <button disabled={count == 0 ? true : false} onClick={() => setCount(count - 1)}>PREV</button>
             <h2>{count}</h2>
-            <button onClick={() => setCount(count + 1)}>NEXT</button>
+            <button disabled={customers.length < limit ? true : false} onClick={() => setCount(count + 1)}>NEXT</button>
         </div>
     </>
     );
