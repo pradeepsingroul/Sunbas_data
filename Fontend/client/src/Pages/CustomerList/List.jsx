@@ -72,7 +72,7 @@ export default function List() {
                 <button><Link to={"/signup"}>Add Customer</Link></button>
             </div>
             <div> <button><Link to={"/login"}>Login</Link></button></div>
-
+            <label htmlFor="">Sort by:
             <select onChange={handleSort} >
                 <option value="city">city</option>
                 <option value="first_name">firstName</option>
@@ -82,7 +82,8 @@ export default function List() {
                 <option value="address">address</option>
                
             </select>
-            <label htmlFor="">Specify the limit
+            </label>
+            <label htmlFor="">limit:
                 <select name="" id="" onChange={handleLimit}>
                     <option value="2">2</option>
                     <option value="3">3</option>

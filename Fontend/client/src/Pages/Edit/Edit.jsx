@@ -37,7 +37,10 @@ export default function Edit() {
             
         })
         console.log(customer)
-        if(saveData.ok) alert("customer updated successfully")
+        if(saveData.ok) { 
+            alert("customer updated successfully") 
+            
+        }
     }
 
     return <div className="container">
